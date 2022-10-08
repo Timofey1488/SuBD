@@ -45,7 +45,7 @@
 * Накладная
     * **id(int)** Many to One к Складу, One to Many к Накладная-Продукт
     * **Date(Date)**
-* Накладная-Продукт(класс, реализующий связь Many to Many между Наклодной и Продуктом)
+* Накладная-Продукт(класс, реализующий связь Many to Many между Наклодной и Продуктом)  
     * **id(int)** Many to One к Продукту, Many to One к Накладной
 * Платежные данные 
     * **id(int)** One to One к Клиенту
@@ -80,7 +80,7 @@
     * **id(int)** Many to One к Менеджеру, One to Many к Накладной
     * **UploadingDate(double)**
 * Роль 
-    **id(int)** One to Many к Менеджеру, One to Many к Клиенту
+    **id(int)** One to Many к Менеджеру, One to Many к Клиенту  
 * Пользователь 
     * **id(int)** One to One к Роли
     * **UserEmail(string)**
