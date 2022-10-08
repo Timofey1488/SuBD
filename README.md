@@ -32,19 +32,58 @@
 
 ## Сущности  
 
-* Категория 
-* Продукт
+* **Категория:**  
+    *  **id(int)** One to Many к Продукту  
+    *  **CategoryName(string 255)**   
+
+* **Продукт**
+    * **id(int)** Many to One к Категории, One to Many к Накладная-Продукт, One to Many к Деталям Заказа, One to Many к Корзине
+    * **Name(string 255)**
+    * **Price(double >0)**
+    * **Availibility(bool Default: true)**
+    * **Count(int >0)**
 * Накладная
-* Накладная
+    * **id(int)** Many to One к Складу, One to Many к Накладная-Продукт
+    * **Date(Date)**
+* Накладная-Продукт(класс, реализующий связь Many to Many между Наклодной и Продуктом)
+    * **id(int)** Many to One к Продукту, Many to One к Накладной
 * Платежные данные 
-* Клиент 
+    * **id(int)** One to One к Клиенту
+    * **NumberCard(int <=19)**
+    * **PaymentDate(Date)**
+    * **TimeTransaction(decimal)**
+* Клиент
+    * **id(int)** One to One к Платежным данным,  Many to One к Роли, Many to One к Заказа
+    * **FirstName(string 255)**
+    * **SecondName(string 255)**
+    * **PhoneNumber(decimal)** 
 * Скидочная карта 
+    * **id(int)** One to One к Клиенту
+    * **NumberCard(decimal)**
 * Менеджер
+    * **id(int)** One to One к Платежным данным,  Many to One к Роли, Many to One к Заказа
+    * **ManagerName(string)**
+    * **ManagerSecondName(string 255)**
+    * **PhoneNumber(decimal)** 
 * Корзина 
+    * **id(int)** One to One к Заказу, Many to One к Продукту, One to One к Клиенту
+    * **EmptyCart(bool)**
 * Заказ
-* Детали заказа 
+    * **id(int)** One to One к Корзине, One to Many к Клиенту
+    * **OrderNumber(decimal)**
+    * **OrderDate(Date)**
+    * **Status(bool)** 
+* Детали заказа(состовной класс реализующий связь Many to Many) 
+    * **id(int)** Many to One к Заказу, Many to One к Продукту
+    * **TotalPrice(double)**
 * Склад
+    * **id(int)** Many to One к Менеджеру, One to Many к Накладной
+    * **UploadingDate(double)**
 * Роль 
+    **id(int)** One to Many к Менеджеру, One to Many к Клиенту
 * Пользователь 
+    * **id(int)** One to One к Роли
+    * **UserEmail(string)**
+    * **UserPassword(string)**
 
     
