@@ -1,6 +1,6 @@
 ## Триггеры
 
-#### Триггер, отвечающий за логирование клиента при INSERT, UPDATE
+### 1)Триггер, отвечающий за логирование клиента при INSERT, UPDATE
 
 Тригер вызывает тригерную функцию, которая срабатывает при вставке или обновлении таблицы клиента.
 Пример данной функции:
@@ -36,7 +36,7 @@ AFTER INSERT OR UPDATE ON clients
 FOR EACH ROW EXECUTE PROCEDURE add_to_log ();
 ```
 
-#### Триггер, создающий таблицу payments для клиента непостредственно после создания клиента
+### 2)Триггер, создающий таблицу payments для клиента непостредственно после создания клиента
 
 ```SQL
 CREATE OR REPLACE FUNCTION new_payments_client() RETURNS TRIGGER AS $create_payments_client$
@@ -53,7 +53,7 @@ FOR EACH ROW
 EXECUTE PROCEDURE new_payments_client();
 ```
 
-#### Триггер, удаляющий товары из корзины, когда заказ сформирован
+#### 3)Триггер, удаляющий товары из корзины, когда заказ сформирован
 ```SQL
 CREATE OR REPLACE FUNCTION delete_products() RETURNS TRIGGER AS $delete_product_from_product_cart$
 	BEGIN
