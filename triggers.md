@@ -2,7 +2,8 @@
 
 ## Триггер, отвечающий за логирвание клиента при INSERT, UPDATE
 
-```CREATE OR REPLACE FUNCTION add_to_log() RETURNS TRIGGER AS $$
+```SQL
+CREATE OR REPLACE FUNCTION add_to_log() RETURNS TRIGGER AS $$
 DECLARE
     mstr varchar(30);
     astr varchar(100);
