@@ -108,7 +108,7 @@ FOR EACH ROW
 EXECUTE PROCEDURE new_payments_client();
 ```
 
-#### 3)Триггер, удаляющий товары из корзины, когда заказ сформирован
+### 3)Триггер, удаляющий товары из корзины, когда заказ сформирован
 ```SQL
 CREATE OR REPLACE FUNCTION delete_products() RETURNS TRIGGER AS $delete_product_from_product_cart$
 	BEGIN
